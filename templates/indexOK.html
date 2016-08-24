@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>School Donations Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/lib/css/keen-dashboards.css">
+    <link rel="stylesheet" href="../static/lib/css/dc.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <script src="../static/lib/js/jquery.min.js"></script>
+</head>
+
+<script>
+    jQuery(window).load(function(){
+    jQuery('#overlay').fadeOut(4000);
+    })
+</script>
+
+<body class="application">
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../" style="font-family: cursive; font-size: 30px; text-align: center">School Donations Dashboard</a>
+        </div>
+    </div>
+</div>
+
+<div id="outer" class="container-fluid" >
+    <div id="overlay" ><br> <h1>Loading...</h1></div>
+
+<div id="outer" class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-8">
+     <div class="jumbotron">
+        <h1 style="font-family: cursive; font-size: 25px; text-align: center">Explanations Of the Project :</h1>
+         <br>
+        <p style="font-size: 15px; font-family: "Anonymous Pro", "Menlo", "Consolas", "Bitstream Vera Sans Mono", "Courier New", monospace">The goal of this project is to expand on the skillsets and tools for creating a meaningful interactive data visualization. To do this, we will use a dataset from DonorsChoose.org to build a data visualization that represents school donations broken down by different attributes over a timeline.
+
+The project will be covering a wide range of technologies: MongoDB for storing and querying the data, Python for building a web server that interacts with MongoDB and serves html pages, and JavaScript libraries: d3.js, dc.js queue.js and Crossfilter.js for building interactive charts.</p>
+      </div>
+            </div>
+        <div class="col-sm-4">
+            <div class="jumbotron">
+            <h1 style="font-family: cursive; font-size: 25px; text-align: center">My others Projects :</h1>
+                <br>
+                <ul style="font-size: 15px; font-family: "Anonymous Pro", "Menlo", "Consolas", "Bitstream Vera Sans Mono", "Courier New", monospace">
+                        <li><a href="https://julienclidiere.github.io/pharmacy-website.github.io/">Pharmacy Showcase</a></li>
+                <br>
+                        <li><a href="https://julienclidiere.github.io/julienclidiere.github.io/">TrendyMen</a></li>
+                <br>
+
+                        <li><a href="https://julienclidiere.github.io/julienclidiere.github.io/">MyCLoud</a></li>
+                <br>
+
+                        <li><a href="https://julienclidiere.github.io/julienclidiere.github.io/">TheFerret</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+
+
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+
+                <!-- Time Chart -->
+                <div class="col-sm-12">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">
+                            Number of Donations
+                        </div>
+                        <div class="chart-stage">
+                            <div id="time-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Time Chart -->
+
+                <!-- Resources -->
+                <div class="col-sm-6">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">
+                            Resources Type
+                        </div>
+                        <div class="chart-stage">
+                            <div id="resource-type-row-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Resources -->
+
+                <!-- funding Pie -->
+                <div class="col-sm-6">
+                    <div class="chart-wrapper">
+                        <div class="chart-title">
+                            Funding Status
+                        </div>
+                        <div class="chart-stage">
+                            <div id="funding-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- funding Pie -->
+
+            </div>
+        </div>
+
+        <!-- Poverty -->
+        <div class="col-sm-3">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                    Poverty Level
+                </div>
+                <div class="chart-stage">
+                    <div id="poverty-level-row-chart"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Poverty -->
+
+        <!-- menu Select -->
+        <div class="col-sm-6">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                    Donation State
+                </div>
+                <div class="chart-stage">
+                    <div id="menu-select"></div>
+                </div>
+            </div>
+        </div>
+        <!-- menu Select -->
+
+        <!-- Metric 1 -->
+        <div class="col-sm-2">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                    Total Number of Donations
+                </div>
+                <div class="chart-stage" style=" background: #33CC99;
+                    position: relative;
+                    font-size: 29px;
+                    color: white;
+                    vertical-align: middle;
+                    text-align: center;
+                    padding-top: 12px;
+                    padding-bottom: 0px;">
+                    <div id="number-projects-nd"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Metric 1 -->
+
+        <!-- Metric 2 -->
+        <div class="col-sm-2"
+        <div class="chart-wrapper">
+            <div class="chart-title">
+                Total Donations in USD
+            </div>
+            <div class="chart-stage">
+                <div id="total-donations-nd"></div>
+            </div>
+        </div>
+        <!-- Metric 2 -->
+
+        <!-- test chart
+        <div class="col-sm-6">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                    School District/Funding Status chart
+                </div>
+                <div class="chart-stage">
+                    <div id="school-district-funding-status"></div>
+                </div>
+            </div>
+        </div>
+         test chart -->
+
+
+    </div>
+
+    <hr>
+    <p class="small text-muted">Data viz &#9829; from Julien Clidiere</p>
+
+</div>
+
+
+
+<script src="../static/lib/js/bootstrap.min.js"></script>
+<script src="../static/lib/js/crossfilter.js"></script>
+<script src="../static/lib/js/d3.js"></script>
+<script src="../static/lib/js/dc.js"></script>
+<script src="../static/lib/js/queue.js"></script>
+<script src="../static/lib/js/keen.min.js"></script>
+<script src='../static/js/graph.js' type='text/javascript'></script>
+
+</body>
+</html>
